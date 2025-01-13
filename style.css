@@ -23,6 +23,15 @@
 
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
+/* Dark theme */
+.dark-theme-variables{
+    --color-background : #181a1e;
+    --color-white : #202528;
+    --color-dark : #edeffd;
+    --color-dark-variant:#a3bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow:0 2rem 3rem var(--color-light);
+}
 
 *{
     margin: 0;
@@ -558,10 +567,12 @@ color: var(--color-primary);
 @media screen and (max-width:768px){
     .container{
         width: 100%;
+        grid-template-columns: 1fr;
     }
     aside{
         position: fixed;
-        left: 0;
+        left: -100%;
+
         background: var(--color-white);
         width: 18rem;
         z-index: 3;
@@ -569,7 +580,15 @@ color: var(--color-primary);
         height: 100vh;
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 400ms ease forwards;
     }
+
+@keyframes showMenu {
+    to{
+        left: 0;
+    }
+    
+}
     aside .logo{
         margin-left: 1rem;
     
@@ -599,6 +618,49 @@ color: var(--color-primary);
     }
     main .recent-orders{
         position: relative;
+        margin-top: 3rem;        
     }
+    main .recent-orders table{
+        width: 100%;
+        margin: 0;
+    }
+    .right{
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+    .right .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0  0.8rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+        padding: 1rem;
+    }
+    .right .top .theme-toggler{
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .right .profile .info{
+        display: none;
+    }
+    .right .profile button{
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+        align-self: center;
+
+        
+    }
+
 
 }
